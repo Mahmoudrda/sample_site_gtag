@@ -245,7 +245,7 @@ body {
   })
   var links = document.querySelectorAll('a')
   for (i=0; i<links.length; i++){
-    links[i].addEventListener(click, function(event){
+    links[i].addEventListener('click', function(event){
       if ((event.target.hostname !== window.location.hostname && !/e-norlaunchpad/.test(event.target.hostname) && !/tel|mailto/.test(event.target.href))){
         gtag('event', 'outbound_click', {
           'link_url': event.target.href})
