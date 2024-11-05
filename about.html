@@ -224,6 +224,21 @@ body {
 <div class="footer">
   <h2>Footer</h2>
 </div>
+  <script>
+  document.querySelector('.navbar').addEventListener('click', function(event){
+    gtag('event', 'navbar_click',{
+      'link_url':  event.target.href})
+  })
+  var links = document.querySelectorAll('a')
+  for (i=0; i<links.length; i++){
+    links[i].addEventListener(click, function(event){
+      if ((event.target.hostname !== window.location.hostname && !/e-norlaunchpad/.test(event.target.hostname) && !/tel|mailto/.test(event.target.href))){
+        gtag('event', 'outbound_click', {
+          'link_url': event.target.href})
+      }
+    })
+  }
+</script>
 
 
 
