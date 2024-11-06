@@ -254,7 +254,7 @@ for (i=0; i<links.length; i++){
     var link_url = link.href
     var  outbound = (event.target.hostname !== window.location.hostname) &&!/e-norlaunchpad/.test(event.target.hostname) && !/tel|mailto/.test(link_url) && !/pdf|docx|txt|rtf|csv|exe|key|pp(s|t|tx)|7z|pkg|rar|gz|zip|avi|mov|mp4|mpe?g|wmv|midi?|mp3|wav|wma/.test(link_url)
     if (outbound){
-      gtag('event', 'outbound', {
+      gtag('event', 'click', {
         'link_classes': link_classes,
         'link_domain': link_domain,
         'link_id': link_id,
