@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'page_type': page_type
     })
     
-    gtag('set', 'event', {
+    gtag('set', 'navbar_click', {
         'login_status': login_status,
         'page_type': page_type,
         'client_id': client_id,
