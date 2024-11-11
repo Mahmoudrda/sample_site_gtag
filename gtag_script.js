@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'page_type': page_type
     })
     
-    gtag('set', {
+    gtag('set', 'event', {
         'login_status': login_status,
         'page_type': page_type,
         'client_id': client_id,
