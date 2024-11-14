@@ -170,7 +170,7 @@ body {
   <a href="#v2">V-Section #2</a>
   <a href="#v3">V-Section #3</a>
   <a href="https://www.google.com" class="right">Google Search</a>
-  <a href=" login.html" class="login_btn">Login</a>
+  <a href="javascript:void(0)" class="login_btn" >Login</a>
 
 </div>
 
@@ -281,26 +281,34 @@ catch(e){
     }
   }
 })
-var login_status = localStorage.getItem('login_status') === 'true'
+    document.querySelector('.login_btn').addEventListener('click', function(event) {
+        if(login_status === false) {
+            document.querySelector('.login_btn').innerHTML = 'Logout'
+            event.preventDefault()
+            login_status = true
+            gtag('config', 'G-4FN9HFPY81', {
+        'user_properties': {
+            login_Status: login_status,
+            custom_client_id: client_id,
+            custom_user_id: Math.floor(Math.random() * 10000000)
+        }
+    },{ send_page_view: false })
+        }   
+        else {
+            document.querySelector('.login_btn').innerHTML = 'Login'
+            event.preventDefault()
+            login_status = false
+            user_id = null
+            gtag('config', 'G-4FN9HFPY81', {
+        'user_properties': {
+            login_Status: login_status,
+            custom_client_id: client_id,
+            custom_user_id: user_id
+        }
+    },{ send_page_view: false })
+        }
 
-if (login_status) {
-    document.querySelector('.login_btn').innerHTML = 'Logout'
-} else {
-    document.querySelector('.login_btn').innerHTML = 'Login'
-}
-
-document.querySelector('.login_btn').addEventListener('click', function(event) {
-    if (login_status === false) {
-        document.querySelector('.login_btn').innerHTML = 'Logout'
-        login_status = true
-    } else {
-        document.querySelector('.login_btn').innerHTML = 'Login'
-        login_status = false
-        localStorage.setItem('login_status', 'false')
-        localStorage.removeItem('user_id')
-        event.preventDefault()
-    }
-})
+    })
 </script>
 <script src="gtag_script.js"></script>
 </body></html>
