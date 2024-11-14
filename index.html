@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+  <script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FN9HFPY81"></script>
 <script>
@@ -7,8 +8,25 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4FN9HFPY81');
+  gtag('config', 'G-4FN9HFPY81', { send_page_view: false });
 </script>
+  <script>
+    var login_status = false
+    var user_id = null
+    var cookieMatch = document.cookie.match(/ga1\.\w\.\w+\.\w+/i)
+    var cookieValue = cookieMatch ? cookieMatch[0] : ''
+    var client_id = cookieValue ? cookieValue.split('.')[2] + '.' + cookieValue.split('.')[3] : ''
+    var page_type = window.location.pathname.split('/')[2].split('.')[0] || 'Home'
+    if (page_type === 'index') { page_type = 'Home'; }
+    dataLayer = window.dataLayer || []
+    gtag('config', 'G-4FN9HFPY81', {
+        'user_properties': {
+            login_Status: login_status,
+            custom_client_id: client_id,
+            custom_user_id: user_id
+        }
+    })
+  </script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home | Sample Website</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
