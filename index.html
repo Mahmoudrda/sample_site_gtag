@@ -281,34 +281,6 @@ catch(e){
     }
   }
 })
-    document.querySelector('.login_btn').addEventListener('click', function(event) {
-        if(login_status === false) {
-            document.querySelector('.login_btn').innerHTML = 'Logout'
-            event.preventDefault()
-            login_status = true
-            gtag('config', 'G-4FN9HFPY81', {
-        'user_properties': {
-            login_Status: login_status,
-            custom_client_id: client_id,
-            custom_user_id: Math.floor(Math.random() * 10000000)
-        }
-    },{ send_page_view: false })
-        }   
-        else {
-            document.querySelector('.login_btn').innerHTML = 'Login'
-            event.preventDefault()
-            login_status = false
-            user_id = null
-            gtag('config', 'G-4FN9HFPY81', {
-        'user_properties': {
-            login_Status: login_status,
-            custom_client_id: client_id,
-            custom_user_id: user_id
-        }
-    },{ send_page_view: false })
-        }
-
-    })
 </script>
 <script src="gtag_script.js"></script>
 </body></html>
