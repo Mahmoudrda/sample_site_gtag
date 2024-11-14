@@ -282,7 +282,7 @@ catch(e){
     }
   }
 })
-  document.querySelector('.login_btn').addEventListener('click', function(event) {
+document.querySelector('.login_btn').addEventListener('click', function(event) {
     if (login_status === false) {
         document.querySelector('.login_btn').innerHTML = 'Logout'
         event.preventDefault()
@@ -293,7 +293,8 @@ catch(e){
                 custom_client_id: client_id,
                 custom_user_id: Math.floor(Math.random() * 10000000)
             },
-            send_page_view: false
+            send_page_view: false,
+            page_type: page_Type
         })
     } else {
         document.querySelector('.login_btn').innerHTML = 'Login'
@@ -306,11 +307,11 @@ catch(e){
                 custom_client_id: client_id,
                 custom_user_id: user_id
             },
-            send_page_view: false
+            send_page_view: false,
+            page_type: page_Type
         })
     }
 })
-
 </script>
 <script src="gtag_script.js"></script>
 </body></html>
