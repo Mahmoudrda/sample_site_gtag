@@ -7,8 +7,27 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4FN9HFPY81');
+  gtag('config', 'G-4FN9HFPY81', { send_page_view: false });
 </script>
+  <script>
+    var login_status = false
+    var user_id = null
+    var cookieMatch = document.cookie.match(/ga1\.\w\.\w+\.\w+/i)
+    var cookieValue = cookieMatch ? cookieMatch[0] : ''
+    var client_id = cookieValue ? cookieValue.split('.')[2] + '.' + cookieValue.split('.')[3] : ''
+    var page_Type = window.location.pathname.split('/')[2].split('.')[0] || 'Home'
+    if (page_Type === 'index') { page_Type = 'Home'; }
+    gtag('config', 'G-4FN9HFPY81', {
+        'user_properties': {
+            login_Status: login_status,
+            custom_client_id: client_id,
+            custom_user_id: user_id
+        }
+    })
+    gtag('config', 'G-4FN9HFPY81',{
+      page_type : page_Type
+    },{ send_page_view: false });
+  </script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Contact | Sample Website</title>
 
