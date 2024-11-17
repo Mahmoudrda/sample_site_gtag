@@ -21,8 +21,9 @@ for (var i = 0; i < links.length; i++) {
         var link_domain = link.hostname
         var link_id = link.getAttribute("id")
         var link_url = link.href
-        var internal_links = [window.location.hostname, /e-norlaunchpad/]
-        var is_outbound = !internal_links.includes(link_domain)
+        //var internal_links = [window.location.hostname, /e-norlaunchpad/]
+        var internalLinkRegex = new RegExp(`(${window.location.hostname}|e-norlaunchpad|tel|mailto)`)
+        var is_outbound = !internalLinkRegex.test(link_url)
         var download_extension_regex = /\.(pdf|xlsx?|docx?|txt|rtf|csv|exe|key|pps|pptx?|7z|pkg|rar|gz|zip|avi|mov|mp4|mpeg|mpg|wmv|midi?|mp3|wav|wma|mailto|tel)$/i
         var is_download = download_extension_regex.test(link_url)
 
